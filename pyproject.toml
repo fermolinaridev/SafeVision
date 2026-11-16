@@ -1,0 +1,27 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "safevision"
+version = "0.3.0"
+description = "Monitoramento visual de equipamentos de proteção individual"
+requires-python = ">=3.12,<3.15"
+dependencies = [
+  "fastapi>=0.116,<1", "uvicorn[standard]>=0.34,<1",
+  "python-multipart>=0.0.20,<1", "pydantic-settings>=2.9,<3",
+  "sqlalchemy>=2.0,<2.1", "alembic>=1.15,<2", "psycopg[binary]>=3.2,<4",
+  "celery[redis]>=5.5,<6", "boto3>=1.38,<2", "itsdangerous>=2.2,<3",
+  "pillow>=11,<13", "ultralytics==8.4.215", "opencv-python>=4.12,<5", "lap>=0.5.12,<0.6",
+]
+
+[project.optional-dependencies]
+onnx = ["onnx>=1.19,<2", "onnxruntime>=1.23,<2", "psutil>=6,<8"]
+test = ["pytest>=8,<10", "httpx>=0.28,<1"]
+
+[tool.setuptools.packages.find]
+include = ["safevision*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+markers = ["integration: requires the running Compose services"]
