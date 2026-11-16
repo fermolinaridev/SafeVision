@@ -1,0 +1,419 @@
+{
+  "weights": "construction-ppe.pt",
+  "device": "cpu",
+  "imgsz": 640,
+  "confidence": 0.35,
+  "split": "Construction-PPE November 2026 / validation",
+  "results": {
+    "all": {
+      "images": 200,
+      "precision": 0.9445,
+      "recall": 0.6768,
+      "f1": 0.7782,
+      "map50": 0.753,
+      "map50_95": 0.5303,
+      "classes": {
+        "person": {
+          "ground_truth": 481,
+          "false_positive": 21,
+          "false_negative": 73,
+          "precision": 0.951,
+          "recall": 0.8482,
+          "f1": 0.8967,
+          "map50": 0.9223,
+          "map50_95": 0.7415
+        },
+        "helmet": {
+          "ground_truth": 294,
+          "false_positive": 18,
+          "false_negative": 84,
+          "precision": 0.9211,
+          "recall": 0.7143,
+          "f1": 0.8046,
+          "map50": 0.7872,
+          "map50_95": 0.5663
+        },
+        "vest": {
+          "ground_truth": 340,
+          "false_positive": 12,
+          "false_negative": 59,
+          "precision": 0.959,
+          "recall": 0.8265,
+          "f1": 0.8878,
+          "map50": 0.8612,
+          "map50_95": 0.6609
+        },
+        "no_helmet": {
+          "ground_truth": 179,
+          "false_positive": 7,
+          "false_negative": 100,
+          "precision": 0.9186,
+          "recall": 0.4413,
+          "f1": 0.5962,
+          "map50": 0.5393,
+          "map50_95": 0.3092
+        },
+        "no_vest": {
+          "ground_truth": 130,
+          "false_positive": 2,
+          "false_negative": 58,
+          "precision": 0.973,
+          "recall": 0.5538,
+          "f1": 0.7059,
+          "map50": 0.6551,
+          "map50_95": 0.3738
+        }
+      }
+    },
+    "small_people": {
+      "images": 49,
+      "precision": 0.917,
+      "recall": 0.4904,
+      "f1": 0.6028,
+      "map50": 0.5801,
+      "map50_95": 0.345,
+      "classes": {
+        "person": {
+          "ground_truth": 262,
+          "false_positive": 19,
+          "false_negative": 63,
+          "precision": 0.9128,
+          "recall": 0.7595,
+          "f1": 0.8292,
+          "map50": 0.8641,
+          "map50_95": 0.5904
+        },
+        "helmet": {
+          "ground_truth": 150,
+          "false_positive": 16,
+          "false_negative": 69,
+          "precision": 0.8351,
+          "recall": 0.54,
+          "f1": 0.6559,
+          "map50": 0.6041,
+          "map50_95": 0.3306
+        },
+        "vest": {
+          "ground_truth": 188,
+          "false_positive": 9,
+          "false_negative": 56,
+          "precision": 0.9362,
+          "recall": 0.7021,
+          "f1": 0.8024,
+          "map50": 0.762,
+          "map50_95": 0.486
+        },
+        "no_helmet": {
+          "ground_truth": 108,
+          "false_positive": 1,
+          "false_negative": 86,
+          "precision": 0.9565,
+          "recall": 0.2037,
+          "f1": 0.3359,
+          "map50": 0.3075,
+          "map50_95": 0.1548
+        },
+        "no_vest": {
+          "ground_truth": 69,
+          "false_positive": 1,
+          "false_negative": 52,
+          "precision": 0.9444,
+          "recall": 0.2464,
+          "f1": 0.3908,
+          "map50": 0.363,
+          "map50_95": 0.1631
+        }
+      }
+    },
+    "elevated_angle": {
+      "images": 11,
+      "precision": 0.9155,
+      "recall": 0.5081,
+      "f1": 0.5907,
+      "map50": 0.583,
+      "map50_95": 0.3235,
+      "classes": {
+        "person": {
+          "ground_truth": 56,
+          "false_positive": 2,
+          "false_negative": 10,
+          "precision": 0.9583,
+          "recall": 0.8214,
+          "f1": 0.8846,
+          "map50": 0.9274,
+          "map50_95": 0.6136
+        },
+        "helmet": {
+          "ground_truth": 26,
+          "false_positive": 6,
+          "false_negative": 10,
+          "precision": 0.7273,
+          "recall": 0.6154,
+          "f1": 0.6667,
+          "map50": 0.7072,
+          "map50_95": 0.3176
+        },
+        "vest": {
+          "ground_truth": 44,
+          "false_positive": 4,
+          "false_negative": 11,
+          "precision": 0.8919,
+          "recall": 0.75,
+          "f1": 0.8148,
+          "map50": 0.8079,
+          "map50_95": 0.4879
+        },
+        "no_helmet": {
+          "ground_truth": 29,
+          "false_positive": 0,
+          "false_negative": 26,
+          "precision": 1.0,
+          "recall": 0.1034,
+          "f1": 0.1875,
+          "map50": 0.1518,
+          "map50_95": 0.0482
+        },
+        "no_vest": {
+          "ground_truth": 12,
+          "false_positive": 0,
+          "false_negative": 9,
+          "precision": 1.0,
+          "recall": 0.25,
+          "f1": 0.4,
+          "map50": 0.3208,
+          "map50_95": 0.1502
+        }
+      }
+    },
+    "partial_occlusion": {
+      "images": 11,
+      "precision": 0.97,
+      "recall": 0.7372,
+      "f1": 0.8332,
+      "map50": 0.946,
+      "map50_95": 0.6715,
+      "classes": {
+        "person": {
+          "ground_truth": 22,
+          "false_positive": 1,
+          "false_negative": 3,
+          "precision": 0.95,
+          "recall": 0.8636,
+          "f1": 0.9048,
+          "map50": 0.9464,
+          "map50_95": 0.7617
+        },
+        "helmet": {
+          "ground_truth": 6,
+          "false_positive": 0,
+          "false_negative": 2,
+          "precision": 1.0,
+          "recall": 0.6667,
+          "f1": 0.8,
+          "map50": 0.8317,
+          "map50_95": 0.4727
+        },
+        "vest": {
+          "ground_truth": 18,
+          "false_positive": 0,
+          "false_negative": 2,
+          "precision": 1.0,
+          "recall": 0.8889,
+          "f1": 0.9412,
+          "map50": 1.0,
+          "map50_95": 0.7961
+        },
+        "no_helmet": {
+          "ground_truth": 15,
+          "false_positive": 1,
+          "false_negative": 6,
+          "precision": 0.9,
+          "recall": 0.6,
+          "f1": 0.72,
+          "map50": 0.9517,
+          "map50_95": 0.6867
+        },
+        "no_vest": {
+          "ground_truth": 3,
+          "false_positive": 0,
+          "false_negative": 1,
+          "precision": 1.0,
+          "recall": 0.6667,
+          "f1": 0.8,
+          "map50": 1.0,
+          "map50_95": 0.6401
+        }
+      }
+    },
+    "low_luminance": {
+      "images": 14,
+      "precision": 0.7862,
+      "recall": 0.6589,
+      "f1": 0.7049,
+      "map50": 0.7581,
+      "map50_95": 0.5864,
+      "classes": {
+        "person": {
+          "ground_truth": 30,
+          "false_positive": 1,
+          "false_negative": 1,
+          "precision": 0.9667,
+          "recall": 0.9667,
+          "f1": 0.9667,
+          "map50": 0.9978,
+          "map50_95": 0.8777
+        },
+        "helmet": {
+          "ground_truth": 22,
+          "false_positive": 0,
+          "false_negative": 3,
+          "precision": 1.0,
+          "recall": 0.8636,
+          "f1": 0.9268,
+          "map50": 0.9482,
+          "map50_95": 0.6683
+        },
+        "vest": {
+          "ground_truth": 28,
+          "false_positive": 1,
+          "false_negative": 1,
+          "precision": 0.9643,
+          "recall": 0.9643,
+          "f1": 0.9643,
+          "map50": 0.973,
+          "map50_95": 0.789
+        },
+        "no_helmet": {
+          "ground_truth": 8,
+          "false_positive": 0,
+          "false_negative": 4,
+          "precision": 1.0,
+          "recall": 0.5,
+          "f1": 0.6667,
+          "map50": 0.8713,
+          "map50_95": 0.5972
+        },
+        "no_vest": {
+          "ground_truth": 2,
+          "false_positive": 0,
+          "false_negative": 2,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "map50": 0.0,
+          "map50_95": 0.0
+        }
+      }
+    },
+    "eye_level": {
+      "images": 11,
+      "precision": 0.95,
+      "recall": 0.9,
+      "f1": 0.92,
+      "map50": 0.9779,
+      "map50_95": 0.8233,
+      "classes": {
+        "person": {
+          "ground_truth": 17,
+          "false_positive": 0,
+          "false_negative": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "map50": 1.0,
+          "map50_95": 0.9371
+        },
+        "helmet": {
+          "ground_truth": 11,
+          "false_positive": 0,
+          "false_negative": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "map50": 1.0,
+          "map50_95": 0.8604
+        },
+        "vest": {
+          "ground_truth": 15,
+          "false_positive": 0,
+          "false_negative": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "map50": 1.0,
+          "map50_95": 0.9075
+        },
+        "no_helmet": {
+          "ground_truth": 6,
+          "false_positive": 1,
+          "false_negative": 3,
+          "precision": 0.75,
+          "recall": 0.5,
+          "f1": 0.6,
+          "map50": 0.8894,
+          "map50_95": 0.5118
+        },
+        "no_vest": {
+          "ground_truth": 2,
+          "false_positive": 0,
+          "false_negative": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "map50": 1.0,
+          "map50_95": 0.9
+        }
+      }
+    }
+  },
+  "confusion_matrix_truth_by_prediction": {
+    "person": {
+      "person": 404,
+      "helmet": 0,
+      "vest": 1,
+      "no_helmet": 0,
+      "no_vest": 0,
+      "background": 76
+    },
+    "helmet": {
+      "person": 0,
+      "helmet": 210,
+      "vest": 1,
+      "no_helmet": 0,
+      "no_vest": 0,
+      "background": 83
+    },
+    "vest": {
+      "person": 2,
+      "helmet": 1,
+      "vest": 281,
+      "no_helmet": 0,
+      "no_vest": 1,
+      "background": 55
+    },
+    "no_helmet": {
+      "person": 1,
+      "helmet": 10,
+      "vest": 0,
+      "no_helmet": 79,
+      "no_vest": 0,
+      "background": 89
+    },
+    "no_vest": {
+      "person": 3,
+      "helmet": 0,
+      "vest": 5,
+      "no_helmet": 0,
+      "no_vest": 71,
+      "background": 51
+    },
+    "background": {
+      "person": 19,
+      "helmet": 7,
+      "vest": 5,
+      "no_helmet": 7,
+      "no_vest": 2,
+      "background": 0
+    }
+  }
+}

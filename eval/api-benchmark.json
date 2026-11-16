@@ -1,0 +1,5 @@
+{
+  "requests": 15,
+  "api_mean_ms": 280.67,
+  "inference_mean_ms": 271.42
+}

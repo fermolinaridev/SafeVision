@@ -1,0 +1,74 @@
+{
+  "baseline-cpu": {
+    "weights": "iaac-ppe.pt",
+    "device": "cpu",
+    "size": 640,
+    "samples": 50,
+    "torch_threads": 2,
+    "image_count": 5,
+    "mean_ms": 52.09,
+    "p95_ms": 54.87,
+    "fps": 19.2,
+    "peak_rss_mib": 554.8
+  },
+  "onnx-cpu": {
+    "weights": "iaac-ppe.onnx",
+    "device": "cpu",
+    "size": 640,
+    "samples": 50,
+    "torch_threads": 2,
+    "image_count": 5,
+    "mean_ms": 46.74,
+    "p95_ms": 56.41,
+    "fps": 21.4,
+    "peak_rss_mib": 676.23
+  },
+  "baseline-mps": {
+    "weights": "iaac-ppe.pt",
+    "device": "mps",
+    "size": 640,
+    "samples": 50,
+    "torch_threads": 2,
+    "image_count": 5,
+    "mean_ms": 18.56,
+    "p95_ms": 20.41,
+    "fps": 53.87,
+    "peak_rss_mib": 651.0
+  },
+  "specialized-cpu": {
+    "weights": "construction-ppe.pt",
+    "device": "cpu",
+    "size": 640,
+    "samples": 50,
+    "torch_threads": 2,
+    "image_count": 5,
+    "mean_ms": 26.86,
+    "p95_ms": 31.03,
+    "fps": 37.23,
+    "peak_rss_mib": 452.91
+  },
+  "specialized-416": {
+    "weights": "construction-ppe.pt",
+    "device": "cpu",
+    "size": 416,
+    "samples": 50,
+    "torch_threads": 2,
+    "image_count": 5,
+    "mean_ms": 13.21,
+    "p95_ms": 14.62,
+    "fps": 75.71,
+    "peak_rss_mib": 410.22
+  },
+  "specialized-onnx": {
+    "weights": "construction-ppe.onnx",
+    "device": "cpu",
+    "size": 640,
+    "samples": 50,
+    "torch_threads": 2,
+    "image_count": 5,
+    "mean_ms": 18.29,
+    "p95_ms": 24.54,
+    "fps": 54.69,
+    "peak_rss_mib": 527.98
+  }
+}
