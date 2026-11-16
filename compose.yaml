@@ -1,0 +1,76 @@
+name: safevision
+x-app: &app
+  image: safevision:local
+  env_file: ${SAFEVISION_ENV_FILE:-.env}
+  environment:
+    SAFEVISION_DATABASE_URL: postgresql+psycopg://safevision:${POSTGRES_PASSWORD:?Configure POSTGRES_PASSWORD}@db:5432/safevision
+    SAFEVISION_REDIS_URL: redis://queue:6379/0
+    SAFEVISION_S3_ENDPOINT: ${SAFEVISION_S3_ENDPOINT:-http://objects:9000}
+    SAFEVISION_DEMO: "false"
+
+services:
+  db:
+    image: postgres:17-alpine
+    environment:
+      POSTGRES_DB: safevision
+      POSTGRES_USER: safevision
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?Configure POSTGRES_PASSWORD}
+    volumes: [database:/var/lib/postgresql/data]
+    ports: ["127.0.0.1:55432:5432"]
+    healthcheck:
+      test: ["CMD", "pg_isready", "-U", "safevision", "-d", "safevision"]
+      interval: 3s
+      timeout: 3s
+      retries: 20
+  queue:
+    image: redis:7-alpine
+    command: ["redis-server", "--appendonly", "yes"]
+    volumes: [queue:/data]
+    ports: ["127.0.0.1:56379:6379"]
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 3s
+      timeout: 3s
+      retries: 20
+  objects:
+    image: rustfs/rustfs@sha256:ee717072290bec9b11abfc0365f8310b00df1cd9b3639943edae47bdef05044a
+    environment:
+      RUSTFS_ACCESS_KEY: ${SAFEVISION_S3_ACCESS_KEY:?Configure SAFEVISION_S3_ACCESS_KEY}
+      RUSTFS_SECRET_KEY: ${SAFEVISION_S3_SECRET_KEY:?Configure SAFEVISION_S3_SECRET_KEY}
+      RUSTFS_CONSOLE_ENABLE: "false"
+    volumes: [objects:/data]
+    ports: ["127.0.0.1:59000:9000"]
+    healthcheck:
+      test: ["CMD", "curl", "--fail", "http://localhost:9000/health/ready"]
+      interval: 4s
+      timeout: 3s
+      retries: 20
+  init:
+    <<: *app
+    build: .
+    command: ["sh", "-c", "alembic upgrade head && python -m scripts.bootstrap"]
+    depends_on:
+      db: {condition: service_healthy}
+      queue: {condition: service_healthy}
+      objects: {condition: service_healthy}
+  api:
+    <<: *app
+    command: ["uvicorn", "safevision.api:app", "--host", "0.0.0.0", "--port", "7860", "--ws-max-size", "1048576"]
+    ports: ["127.0.0.1:7860:7860"]
+    depends_on:
+      init: {condition: service_completed_successfully}
+  worker:
+    <<: *app
+    command: ["celery", "-A", "safevision.tasks:worker", "worker", "--loglevel=INFO", "--concurrency=1"]
+    depends_on:
+      init: {condition: service_completed_successfully}
+  scheduler:
+    <<: *app
+    command: ["celery", "-A", "safevision.tasks:worker", "beat", "--loglevel=INFO", "--schedule=/tmp/celerybeat"]
+    depends_on:
+      init: {condition: service_completed_successfully}
+
+volumes:
+  database:
+  queue:
+  objects:
